@@ -1,4 +1,4 @@
-# Video Layers
+# Video Overlay
 
 A simple example of overlaying video with interactive SVG.  
 
