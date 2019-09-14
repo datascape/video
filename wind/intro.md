@@ -1,6 +1,6 @@
 [Atlanta Donation Hubs](https://planet.live/community/hubs/#us.ga_to_bs)  
 
-**Hurricane Humberto 2019**  
+**Tropical Storm Humberto 2019**  
 *Abaco Islands, Bahamas*  
 [2018-09-14 2pm (19 UTC)](https://earth.nullschool.net/#2019/09/14/1900Z/wind/surface/level/grid=on/orthographic=-77.3504,25.0443,1269/loc=-82.4572,27.9506)  
 
