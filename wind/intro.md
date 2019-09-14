@@ -1,6 +1,4 @@
-## Planet Live
-
-#### Wind Speeds 
+#### Hurricane Tracking 
 
 **Hurricane Dorian 2019**  
 *Nassau, Bahamas*  

@@ -95,7 +95,7 @@ function loadMarkupPage(pagePath, divID, target) {
             || elems[i].text.includes("Prior") 
             || elems[i].text.includes("Google") || elems[i].text.includes("GitHub") || elems[i].text.includes("Brain") || elems[i].text.includes("GPU.js") || elems[i].text.includes("11 JavaScript")) {
             //alert('here')
-            elems[i].setAttribute('target', "_blank");
+            //elems[i].setAttribute('target', "_blank");
           } else {
             elems[i].setAttribute('target', target);
           }
@@ -183,9 +183,12 @@ $(document).ready(function () {
 <body>
 
 <div id="resizable">
-  <div id="introDiv" style="margin:40px"></div>
 
-  
+  <div style="margin:40px">
+    <img class="headerLogo" src="/community/hubs/img/planet.live.png" style="height:40px" />
+
+    <div id="introDiv"></div>
+  </div>
 
   <div id="resizer"></div>
 </div>
