@@ -8,8 +8,10 @@
 *Abaco Islands, Bahamas*  
 [2018-09-01 7pm (0 UTC)](https://earth.nullschool.net/#2019/09/02/0000Z/wind/surface/level/grid=on/orthographic=-77.1485,26.3555,1269/loc=-77.1485,26.3555)  
 
-[Atlantic Now](https://earth.nullschool.net/#current/wind/surface/level/orthographic=-50.31,33.81,913) | 
-[Pacific Now](https://earth.nullschool.net/#current/wind/surface/level/orthographic=-204.43,22.60,806)  
+[Atlantic](https://earth.nullschool.net/#current/wind/surface/level/orthographic=-50.31,33.81,913) | 
+[India](https://earth.nullschool.net/#current/wind/surface/level/orthographic=71.99,20.54,913) |
+[Austrailia](https://earth.nullschool.net/#current/wind/surface/level/orthographic=139.88,-21.78,913) | 
+[Pacific](https://earth.nullschool.net/#current/wind/surface/level/orthographic=-204.43,22.60,806)     
 [Whole Earth](https://earth.nullschool.net/#current/wind/surface/level/orthographic=-59.66,0.34,464) | 
 [Prior Storms](https://planet.live/storms/)  
 <br>
