@@ -2,15 +2,14 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Planet.Live</title>
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
-<!--
 <meta name="viewport" content="width=device-width, initial-scale=1">
--->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="/video/js/showdown.min.js"></script>
 
 <script type="text/javascript" src="//d3js.org/d3.v3.js"></script>
 <script type="text/javascript" src="/video/js/nouislider.min.js"></script>
-<link rel="stylesheet" href="/video/css/community.css" />
+<link rel="stylesheet" href="/community/css/community.css" />
 <link rel="stylesheet" href="/video/css/nouislider.min.css" />
 
 
@@ -164,6 +163,11 @@ $(document).ready(function () {
     background-color: rgba(0,0,0,.5);
     height:12px;
   }
+  @media (max-width: 600px) {
+    #slider-pips {
+      displayX:none;
+    }
+  }
 
   .noUi-marker-horizontal.noUi-marker-large {
     height: 10px;
@@ -194,7 +198,7 @@ $(document).ready(function () {
 
 <div id="mainarea">
   <!-- https://earth.nullschool.net/#current/wind/surface/level/orthographic=-78.45,29.48,1310 -->
-  <iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-76.49,26.22,2996" class="iframe" name="mainframe" id="mainframe"></iframe><br>
+  <iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-76.49,26.22,2996" class="iframe" name="mainframe" id="mainframe" style="min-height: 94vh;"></iframe><br>
   <div style="position:absolute; bottom:0px">
     <!--
     Embedded content. Scroll within iFrame above.
@@ -211,9 +215,10 @@ $(document).ready(function () {
 
 <div id="slider-pips"></div>
 
-
+<!-- Only works on localhost -->
+<!--
 <iframe src="https://streema.com/radios/play/Bahamian_Or_Nuttin" style="width:300px;min-height:480px;height:480px"></iframe><br>
-
+-->
 
 
 

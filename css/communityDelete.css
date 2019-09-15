@@ -96,6 +96,7 @@ h1 {
   @media (max-width: 800px) {
     #resizable {
       width: 100%;
+      float:none;
     }
     #mainarea {
       width: 85%;
