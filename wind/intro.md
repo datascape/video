@@ -1,4 +1,4 @@
-[Atlanta Donation Hubs](https://planet.live/community/hubs/#route=us.ga_to_bs)  
+[Atlanta Distribution Hubs](https://planet.live/community/hubs/#us.ga_to_bs)  
 
 **Tropical Storm Humberto 2019**  
 *Abaco Islands, Bahamas*  

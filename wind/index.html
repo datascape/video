@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/community/css/community.css" />
 <link rel="stylesheet" href="/video/css/nouislider.min.css" />
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script type="text/javascript">
 window.onload=function(){
@@ -110,9 +111,51 @@ function viewInTab() {
    window.location.href = url;
  }
 
+function toggleFullScreen() {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+
+    // Since unable to resize content of iFrame
+    window.location.href = $('#mainframe').attr('src'); // Redirect
+    return;
+
+
+    $('#resizable').hide();
+    // Only if video is not visible. Otherwise become black.
+    //$('.moduleBackground').css({'z-index':'0'});   
+    // To do: Change icon to &#xE5D1;
+    if (document.documentElement.requestFullScreen) {  
+      document.documentElement.requestFullScreen();  
+    } else if (document.documentElement.mozRequestFullScreen) {  
+      document.documentElement.mozRequestFullScreen();  
+    } else if (document.documentElement.webkitRequestFullScreen) {  
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+    }
+    $('.expandToFullscreen').hide();
+    $('.reduceFromFullscreen').show();
+
+    //$('#mainframe').attr('src', $('#mainframe').attr('src') + '?forceit=1'); // Reload
+  } else {
+    $('#resizable').show();
+    //$('.moduleBackground').css({'z-index':'-1'}); // Allows video to overlap.
+    if (document.cancelFullScreen) {  
+      document.cancelFullScreen();  
+    } else if (document.mozCancelFullScreen) {  
+      document.mozCancelFullScreen();  
+    } else if (document.webkitCancelFullScreen) {  
+      document.webkitCancelFullScreen();  
+    }
+    $('.reduceFromFullscreen').hide();
+    $('.expandToFullscreen').show();
+  }
+}
 
 $(document).ready(function () {
    
+   $('.expandToFullscreen, .reduceFromFullscreen').click(function(event) {
+        toggleFullScreen();  
+    });
+
     // Slider: https://refreshless.com/nouislider/
     // Also dot style: https://jsfiddle.net/leongersen/9hyfv0bw/11/
 
@@ -197,8 +240,23 @@ $(document).ready(function () {
 </div>
 
 <div id="mainarea">
+
+  <style>
+    .expandToFullscreen, .reduceFromFullscreen {
+      cursor: pointer;
+    }
+  </style>
+  <div style="position: absolute; right:0">
+    <div class="expandToFullscreen" style="border:0px;float:left;">
+        <i class="material-icons" style="font-size:32px;color:#fff">&#xE5D0;</i>
+    </div>
+    <div class="reduceFromFullscreen" style="display:none;border:0px; float:left; min-width: 60px">
+        <i class="material-icons" style="font-size:31px; color:#fff">fullscreen_exit</i>
+    </div>
+  </div>
+
   <!-- https://earth.nullschool.net/#current/wind/surface/level/orthographic=-78.45,29.48,1310 -->
-  <iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-76.49,26.22,2996" class="iframe" name="mainframe" id="mainframe" style="min-height: 94vh;"></iframe><br>
+  <iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-76.49,26.22,2996" class="iframe" name="mainframe" id="mainframe" style="min-height: 94vh; width:100%"></iframe><br>
   <div style="position:absolute; bottom:0px">
     <!--
     Embedded content. Scroll within iFrame above.
