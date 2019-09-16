@@ -116,9 +116,12 @@ function toggleFullScreen() {
    (!document.mozFullScreen && !document.webkitIsFullScreen)) {
 
     // Since unable to resize content of iFrame
-    window.location.href = $('#mainframe').attr('src'); // Redirect
-    return;
-
+    // Only useful without mobile
+    if ($( window ).width() > 600) {
+      // TO DO: Try forking instead. Changed hash is not available when expanding.
+      window.location.href = $('#mainframe').attr('src'); // Redirect
+      return;
+    }
 
     $('#resizable').hide();
     // Only if video is not visible. Otherwise become black.
@@ -131,10 +134,13 @@ function toggleFullScreen() {
     } else if (document.documentElement.webkitRequestFullScreen) {  
       document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
     }
+
     $('.expandToFullscreen').hide();
     $('.reduceFromFullscreen').show();
 
+    // No good effect:
     //$('#mainframe').attr('src', $('#mainframe').attr('src') + '?forceit=1'); // Reload
+    //location.reload();
   } else {
     $('#resizable').show();
     //$('.moduleBackground').css({'z-index':'-1'}); // Allows video to overlap.
