@@ -16,6 +16,10 @@
         background: #000;
         color:#fff;
       }
+      .cornerlogo {
+        position: absolute;
+        z-index: 9999;
+      }
       path.link {
         fill: none;
         stroke-width: 2px;
@@ -59,14 +63,17 @@
 
 
 <body>
+  <img src="../img/logo/datascape-corner.gif" class="cornerlogo">
+
+  <!-- https://player.vimeo.com/video/120108729?autoplay=1 -->
 
   <div class="videoWrapper">
-    <iframe width="100%" height="100%" src="https://player.vimeo.com/video/120108729?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aBr2kKAHN6M?start=100&origin=https://plyr.io&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
 
   <div style="position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;">
     <header>
-      <h1>MARVEL METATATION</h1>
+      <h1>DATASCAPE</h1>
     </header>
     <!-- container for force layout visualisation  -->
     <section id="vis"></section> 
@@ -100,7 +107,7 @@ d3.json("toy.json", function(json) {
   root.y = h / 4;
  
  
-        // Build the path
+  // Build the path
   var defs = vis.insert("svg:defs")
       .data(["end"]);
  
