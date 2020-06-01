@@ -16,7 +16,7 @@
 
 <!--
 Add index.html file to site root containing:
-<script language="JavaScript">window.location="planet.live/";</script>
+<script language="JavaScript">window.location="start/";</script>
 -->
 
 
@@ -28,13 +28,106 @@ Add index.html file to site root containing:
 
     background-image:url(img/header/stars.jpg);
     background-repeat:no-repeat;
-    position: relative;
     color:#999;
   }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    bottom:0;
+
+    borderX: 10px blue solid;
+  }
+  .box {
+    background: rgba(33, 33, 33, 0.6);
+    padding:30px;
+  }
+  .author {
+    display: none;
+  }
 </style>
+
+
+</head>
+
+
+
+
+
 </head>
 
 <body>
   
+  <div class="center">
+    <div class="box">
+
+      <div style="font-size: 52px; color:#fff"><span id='ct' ></span></div>
+      
+      <script type="text/javascript">
+        function formatDate(d) {
+           //var d = new Date();
+           var year = d.getMonth() + 1;
+           var day = d.getDate();
+           var month = d.getMonth() + 1;
+           var hour = d.getHours();
+           var min = d.getMinutes();
+           var sec = d.getSeconds();
+           //var date = d.getFullYear() + "-" + (month < 10 ? '0' + month : month) + "-" + (day < 10 ? '0' + day : day) +
+           // var date = (hour < 10 ? '0' + hour : hour)
+           // + ":" + (sec < 10 ? '0' + sec : sec)
+          var date = (hour > 12 ? hour - 12 : hour) + ":" + (min < 10 ? '0' + min : min) + " " + (hour > 12 ? 'PM' : 'AM');
+           return date;
+       }
+
+        // Source: https://www.plus2net.com/javascript_tutorial/clock.php
+        function display_c(){
+          display_ct();
+          // TO DO: Change the refresh rate to minutes, delay 
+          var refresh=10; // Refresh rate in seconds
+          mytime=setTimeout('display_ct()',refresh)
+        }
+
+        function display_ct() {
+          var x = new Date();
+          document.getElementById('ct').innerHTML = formatDate(x);
+          //console.log(formatDate(x));
+          display_c();
+        }
+        display_ct();
+      </script>
+
+      <script type="text/javascript" src="https://theysaidso.com/gadgets/v3/theysaidso.js"></script>
+      <div classX="tso_default_style">
+        <script>TheySaidSo.render({ qod_category : 'life'});</script>
+      </div>
+
+      <br><br>
+
+      <h3>What is it?</h3>
+      <li>A starting point for video call backgrounds</li>
+      <li>A starting point for home automation controls</li>
+      <li>A starting point for family project sharing</li>
+      <li>A starting point for sharing news and entertainment</li>
+    </div>
+  </div>
+  
+  <link id="fonts-googleapis-com-icon" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="all">
+
+  <link id="georgiadata-github-io-site-css-font-awesome-min-css" rel="stylesheet" type="text/css" href="https://georgiadata.github.io/site/css/font-awesome.min.css" media="all">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+ <div style="font-size:32px">
+  <i class="showAppsX material-icons appIconX" style="font-size:32px">&#xE5C3;</i>
+
+  <i class="fas fa-star"></i>
+ </div>
+
 </body>
 </html>
