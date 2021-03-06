@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.flaskenv
+*.pyc
+*.pyo
+env/
+env*
+yarn.lock
+.venv
+dist/
+build/

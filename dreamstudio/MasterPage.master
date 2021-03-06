@@ -1,0 +1,348 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register TagPrefix="Bootstrap" TagName="Menu" Src="/Core/Item/Menu/BootstrapMenu.ascx" %>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/dreamstudio/favicon.ico" />
+    <title>[TITLE]</title>
+
+    <link href="/core/elements/styles/default.css" rel="stylesheet" type="text/css" />
+    <link href="/base/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- Failed to load, but arrows not displayed when removing -->
+    <!--
+    <link href="/base/fonts/font-awesome-4.0.3/css/font-awesome.min.css" media="all" type="text/css" rel="stylesheet">
+    -->
+
+    <!--
+    <link href="/base/fonts/entypo/entypo.css" rel="stylesheet" >
+    <link href="/base/fonts/ionicons-2.0.1/css/ionicons.min.css?v=2.0.1" rel="stylesheet">
+    -->
+
+    
+    
+    <script type="text/javascript" language="JavaScript" >
+        function SearchEnter(event1) {
+            var kCode = String.fromCharCode(event1.keyCode);
+            if (kCode == "\n" || kCode == "\r") {
+                SearchSubmit();
+                return false; // Prevents page from being submitted.
+            }
+        }
+        function SearchSubmit() {
+            if (document.forms[0].gosearch.value == 'search') {
+                document.forms[0].gosearch.value = '';
+            }
+            parent.location.href = '/net/content/search.aspx?s=0.0.0.8&db=system&keyword=' + document.forms[0].gosearch.value;
+        }
+        function SearchFormValidate(f) {
+            if (f.query.value == "" || f.query.value == "search") {
+                alert("Please enter a search term!");
+                f.query.focus();
+                return false;
+            }
+            else return true;
+        }
+        function SearchFormTextCheck(t, dirn) {
+            if (dirn == 1 && t.value == "search") t.value = "";
+            if (dirn == 0 && t.value == "") t.value = "search";
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+</head>
+
+<body style="background:#fff">
+
+<%
+//<!-- detect-zoom.js must reside after body tag. -->
+//<link rel="stylesheet" href="/go/midtown/css/main.css" type="text/css">
+//<script type="text/javascript" src="/go/midtown/js/detect-zoom.js"></script>
+%>
+
+<%
+// Must reside after head, else "control contains code block" error. 
+if (!PUP.IsMode("e")) { %>
+<!--
+<link type="text/css" href="/jquery/gallery/slideshow-1.1.css" rel="stylesheet" />
+-->
+
+<!-- Error: Uncaught TypeError: c.curCSS is not a function
+<script type="text/javascript" src="/jquery/ui/draggable/jquery-ui-1.8.13.custom.min.js"></script> 
+-->
+<!--
+<script type="text/javascript" src="/jquery/gallery/slideshow-1.1.js"></script>
+-->
+
+<style type="text/css">
+.navLinks, .navLinks a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right:8px;
+    margin-left:8px;
+    font-family: Lato, sans-serif;
+    font-weight:400;
+}
+@media (min-width:1000px) {
+    .container {
+        width:1000px;
+    }
+}
+</style>
+<% } %>
+
+<script type="text/javascript" language="javascript">
+
+    numberArrows = false;
+    loadThumbnails = true;
+    <%
+    //jsonLink = '/location/gallery/imagefeed.aspx?fl=1280&w=files/DreamStudio/2011/Yaxchilan';
+     %>
+     
+     <% if (PUP.ItemID == 94009) { %>
+    jsonLink = '/files/dreamstudio/2011/Yaxchilan/feed.htm';
+    <% } else { %>
+    jsonLink = '/dreamstudio/img/feed.htm';
+    <% } %>
+
+    function runSlideshow() {
+        <% if (PUP.ItemID == 94009 && !PUP.IsMode("eam")) { %>
+        $('.content-holder').hide();$('#showContent').show(); // Hide the content area, show the bridge image.
+        <%  } %>
+        loadGallery();
+        initiateSlideshow();
+        showImage(0);
+
+
+    }
+    $(document).ready(function () {
+        //$(".content-holder").draggable({handle: ".content-holder-handle"});
+ 
+        //Deactivated
+        //runSlideshow();
+
+        $('#galleryPosition').insertAfter($('#insertGallery'));
+        $('.slideLeft').click(function () {
+            $(".contentBucket").attr("style","margin:0px");
+            $(".content-holder").attr("style","left:0px;right:0px;top:1px");
+            $('#galleryPosition').hide();
+            $('.slideLeft').hide();
+            $('.slideCenter').show();
+        });
+        $('.slideRight').click(function () {
+            $('#galleryPosition').show();
+            $('.content-holder').hide();
+            $('#showContent').show();
+        });
+        $('.slideCenter').click(function () {
+            $('#galleryPosition').show();
+            $(".contentBucket").attr("style","margin:0 8% 0 35%;");
+            $('.slideCenter').hide();
+            $('.slideLeft').show();
+        });
+
+    });
+</script>
+
+<asp:PlaceHolder ID="StyleOverridePH" runat="server"></asp:PlaceHolder>
+
+<div style="position:relative; z-index:100; width:100%;">
+
+    <asp:Panel ID="HeaderPanel" runat="server">
+    <!--Header-->
+    <div style="height:80px;border-bottom:1px solid #eee;background:#fff;z-index:1;width:100%;position:fixed;overflow:visible;z-index:1000">
+        
+        <div style="float:left"><a href="/"><img src="/dreamstudio/img/logo/dreamstudio.jpg" style="height:23px; margin:28px 10px 4px 34px" /></a>
+        </div>
+
+
+
+        <div style="overflow:auto; border-left:0px solid #ccc; height:60px; margin:23px 40px 0 10px; padding-left:16px; font-size:13px">
+
+            <div class="navLinks" style="float:right;padding-top:6px">
+                <a href="/dreamstudio/creative/#suite"><span style="white-space: nowrap">Creative Suite</span></a> | 
+                <!--
+                <a href="/#portfolio"><span style="white-space: nowrap">Portfolio</span></a> | 
+                -->
+                <a href="/#contact">Contact</a>
+
+                <!--
+                /about-us
+                /dev 
+                -->
+
+             </div>
+
+        </div>
+    </div>
+    <div style="height:80px"></div>
+
+    <div style="float:left">
+        <!--
+        <span class="entypo-menu" style="font-size: 34px; padding-top:2px; padding-bottom:0px; float:left"></span>
+        -->
+        <!--
+        <div id="pageLogo" style="margin:4px 0 0 10px; float:left; z-index:100">
+            <% if (PUP.IContains(PUP.Host, "dreamstudio.com") || PUP.IContains(PUP.Host, "neighborhood") || PUP.Host == "http://localhost") { %>
+                 <a href="http://dreamstudio.com"><img style="margin-top:0px;max-width:160px" src="/dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
+            <% } else { %>
+                 <a href="http://dreamstudio.com"><img id="siteLogo" style="margin-top:0px;max-width:160px" src="/dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
+            <% } %>
+        </div>
+        -->
+    </div>
+
+    <!-- To do: copy formatting for other search icon, so field stays within bar. -->
+    <div style="display:none; position:relative; float:right; text-align:right; z-index:100">
+        <div id="showSearch" style="margin-left:10px; margin-right:10px;" onclick="$('#search-holder').show();$('#showSearch').hide();"><div class="entypo-search" style="font-size:28px;color:#777;margin:0px;cursor:pointer"></div></div>
+    
+        <asp:Panel ID="SearchPanel" runat="server">
+            <div id="search-holder">
+
+                <!-- Caused error: [DOM] Found 2 elements with non-unique id #keywordSearch: -->
+                <!--
+                <form name="keywordSearch" id="keywordSearch" method="get" action="#" class="searchform">
+                <span id="search_box">
+                <input id="searchInput" name="gosearch" value="search" onblur="SearchFormTextCheck(this, 0)" onfocus="SearchFormTextCheck(this, 1)"  type="text" maxlength="200" accesskey="S" title="Enter search words" onkeypress="return SearchEnter(event);" />
+                <a title="Go Search" href="javascript:SearchSubmit();"><img title="Go Search" alt="Go Search" src="/Core/Elements/Buttons/Go-Cafe.png" style="border-width:0px;margin:0 10px 0 2px;" /></a>
+                </span>
+                </form>
+                -->
+            </div>
+        </asp:Panel>
+    </div>
+
+    <!--End Header-->
+     </asp:Panel>
+</div>
+
+<div style="clear:both"></div>
+
+<asp:label id="TopMessageLabel" runat="server"></asp:label>
+<div style="clear:both"></div>
+
+
+<% if (PUP.ItemID == 94009 && !PUP.IsMode("eam")) { %>
+    <div id="slide-number-holder">
+        <div style="display:none;">
+            <div style="margin-top:6px; margin-right:10px;" onclick="$('#thumb-holder').attr('style', 'z-index:1001'); $('#slide-number-holder').hide(); $('#thumb-holder').show(); $('.slide-nav-button').hide();return;"><span class="slide-nav-button">gallery</span></div>
+            <div id="slide-numbers"></div>
+        </div>
+    </div>
+<% } %>
+
+<!-- START RELATIVE -->
+<!-- min-height keeps visible whenn content closes-->
+<div style="position:relative;overflow:hidden;min-height:800px"> 
+
+    <% if (1==2 && !PUP.IsMode("aepm") && showGallery) { // Gmail ignores display:none %>
+    <!-- Arrows -->
+    <div style="position:absolute;bottom:40px;right::70px">
+        <div id="prev" class='carousel-control' onclick="previousSlide();$('#thumb-holder-container').hide();return;">
+
+            <div class="fa fa-chevron-left prev" style="opacity: 0.7; margin:5px 0 0 -6px"></div>
+
+        </div> 
+    </div>
+    <div style="position:absolute;bottom:40px; right:0px">
+        <div id="next" class='carousel-control right' onclick="nextSlide();$('#thumb-holder-container').hide();return;">
+
+            <div class="fa fa-chevron-right next" style="opacity: 0.7; margin:5px 0 0 4px"></div>
+
+        </div>
+    </div>
+    <% } %>
+
+
+<!--
+<div style="position:absolute;z-index:-1; width:100%">
+ <img src="/dreamstudio/images/bkgd/moon-formation.jpg" width="100%" alt="" />
+</div>
+-->
+<% if (!PUP.IsMode("eam")) { %>
+<!-- Gallery -->
+<div id="insertHeaderGallery"></div>
+
+<!-- moved galleryPosition to MasterPage-removed -->
+
+<!-- Used by jquery/gallery/slideshow...js  -->
+<div id="widget"></div>
+
+<!-- End Gallery -->
+
+<% } %>
+
+
+<div class="container" id="contentAbsolute">
+
+    <!-- create space for header graphic -->
+    <!--
+     <div style="height:250px; z-index:999999999">
+        &nbsp; 
+    </div>
+    -->
+
+    <div class="contentBucket">
+
+        <div class="content-holder contentBox">
+        
+            <div style='float:right; max-width:320px;margin-top:6px;'>
+                <asp:PlaceHolder ID="RightMiddlePH" runat="server"></asp:PlaceHolder>
+            </div>
+        
+
+
+            <% if (1==2 && !PUP.IsMode("ea")) { %>
+                <!-- Diasbled, error was occuring
+                <div class="content-holder-handle hideMobile" style="position:absolute;left:0;right:0;top:0;z-index:1">&nbsp;</div>
+
+                <div class="slideRight entypo-cancel-squared" style="color:#777;z-index:100"></div>
+
+                <div class="hideMobile" style="position:absolute;left:0;height:100%;width:12px;z-index:1">
+                    
+                    <!--
+                    <div class="slideLeft entypo-plus-squared" style="color:#777;"></div>
+                    <div class="slideCenter entypo-minus-squared" style="color:#777;"></div>
+                    -->
+                </div>
+
+                <br>
+            <% } %>
+
+            <asp:label id="SessionMessageLabel" runat="server"></asp:label>
+
+
+            <!-- LAYOUT -->
+            <!-- CONTENT -->
+            <form id="form1" runat="server">
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
+            </form>
+            <!-- END CONTENT -->
+            <!-- END LAYOUT -->
+
+            <asp:label id="ExtrasLabel" runat="server"></asp:label> 
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+<!-- END RELATIVE -->
+
+
+<asp:Panel ID="FooterPanel" runat="server">
+    <!-- FOOTER -->
+
+    <div style="background:#222;padding:20px; z-index:99999">
+    <asp:HyperLink style="color:#ccc; font-size:11pt; color:#777;" ID="CopyrightHL" runat="server" Text=""></asp:HyperLink>&nbsp; 
+    </div>
+
+    <!-- END FOOTER -->
+</asp:Panel>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+
+	body, html {
+		height: 100%;
+		margin: 0;
+		font: 400 15px/1.8 "Lato", sans-serif;
+		color: #777;
+	}
+	@media (max-width: 600px) {
+		.hidemobile {
+			display: none;
+		}
+	}
+  a {
+    color: rgb(85, 26, 139);
+  }
+  a:hover {
+    color: rgb(0, 0, 238);
+  }
+	.navLinks, .navLinks a {
+	    color: #aaa;
+	    text-decoration: none;
+	    font-size: 16px;
+	    margin-right:8px;
+	    margin-left:8px;
+	}
+  .navLinks:hover, .navLinks a:hover {
+      color: #555;
+  }
+  .navLinksNoMargin, .navLinksNoMargin a {
+    margin:0px;
+  }
+  .navText {
+      font-size: 16px;
+      margin-right:8px;
+      margin-left:8px;
+  }
+  .navText a, .navText a:visited {
+    color:#333;
+  }
+	.bgimg {
+		position: relative;
+		opacity: 0.65;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	/* Turn off parallax scrolling for tablets and phones */
+	@media only screen and (max-device-width: 1024px) {
+	    .bgimg {
+	        background-attachment: scroll;
+	    }
+	}
+
+	.herocenter {
+	  position: absolute;
+	  left: 0;
+	  top: 50%;
+	  width: 100%;
+	  text-align: center;
+	  color: #000;
+	}
+
+	.herocenter span.border {
+	  background-color: #111;
+	  background-color: #000;
+	  opacity: 0.95;
+	  color: #fff;
+	  padding: 18px;
+	  padding-left: 25px;
+	  font-size: 25px;
+	  font-size:18px;
+	  letter-spacing: 10px;
+	  display: inline-block;
+	}
+
+	h3 {
+	  letter-spacing: 5px;
+	  text-transform: uppercase;
+	  font: 20px "Lato", sans-serif;
+	  line-height: 32px;
+	  color: #111;
+	}
+	.dark {
+		color:#ddd;
+		background-color:#282E34;
+		text-align:center;
+		padding:50px 80px;
+		text-align: justify;
+		font-size: 16px;
+	}
+	.dark a {
+		color:#fff;
+	}
+	.lite {
+		color: #777;
+		background-color:#fafafa;
+		text-align:justify;
+		padding:50px 80px;
+		overflow: hidden;
+	}
+	@media (max-width: 600px) {
+		.lite {
+			padding:20px 20px;
+		}
+	}
+	.credit {
+		font-size: 12px;
+		padding:5px 5px 5px 15px;
+	}
+
+	#logoHolder {
+		margin:8px 8px 0px 8px;
+		font-family: 'Helvetica Neue', HelveticaNeue, calibri, arial, sans-serif;
+	}
+	.smartButton {
+	  cursor: pointer;
+	  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+	  font-size: 14px;
+	  line-height: normal;
+	  position: relative;
+	  text-decoration: none;
+	  text-align: center;
+	  display: inline-block;
+	  padding: 6px 12px 6px 12px;
+	  background-color: #4586f6;
+	  border-color: #007ba1;
+	  color: #fff;
+	  -webkit-transition: background-color 300ms ease-out;
+	  -moz-transition: background-color 300ms ease-out;
+	  transition: background-color 300ms ease-out;
+	  -webkit-appearance: none;
+	  border: none;
+	  font-weight: normal !important;
+	  -webkit-border-radius: 13px;
+	  border-radius: 13px;
+	  margin-bottom: 8px;
+	  margin-right: 6px;
+	}
+  .smartButton:hover {
+    color:#fff;
+    background-color: rgb(0, 0, 238);
+  }
+
+	/* Also reside in dsi */
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swiper-slide {
+      text-align: center;
+      background: #fff;
+      /* Center slide text vertically, and horizontally */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .swiper-slide img {
+
+    }
+    :focus {
+        outline-width: 0px;
+    }
+    /* Additions */
+    .swiper-slide .title {
+      font-size: 41px;
+      font-weight: 300;
+    }
+    .swiper-slide .subtitle {
+      font-size: 21px;
+    }
+    .swiper-slide .text {
+      font-size: 14px;
+      max-width: 400px;
+      line-height: 1.3;
+    }
+    /* Overrides */
+    .swiper-container-vertical>.swiper-pagination-bullets {
+        /* Removes centering alignment which is skewed by quantity */
+        -webkit-transform: translate3d(0,-0%,0);
+        transform: translate3d(0,-0%,0);
+    }
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        border-radius: 100%;
+        background: #ccc;
+        opacity: .8;
+        /* margin: 10px 0 !important; */
+        margin: 12px 10px !important;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #fefefe;
+        /* box-shadow: 0px 0px 2px rgba(0,0,0,0.2); */
+        background: #fff;
+        border: 2px solid #eee;
+        width: 8px;
+        height: 8px;
+        box-shadow: 0px 0px 1px rgba(256,250,250,0.5);
+    }
+    @media (max-width: 799px) {
+      .swiper-pagination-bullet {
+        width: 18px;
+        height: 18px;
+      }
+      .swiper-pagination-bullet-active {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .swiper-button-prev {
+        background-image: url(../img/plyr/arrow-prev.png) !important;
+        left: -18px;
+    }
+    .swiper-button-prev:hover {
+        background-image: url(../img/plyr/arrow-prev-hover-blue.png) !important;
+    }
+    .swiper-button-next {
+        background-image: url(../img/plyr/arrow-next.png) !important;
+        right: -18px;
+    }
+    .swiper-button-next:hover {
+        background-image: url(../img/plyr/arrow-next-hover-blue.png) !important;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        background-size: 57px 57px;
+        width: 100px;
+        height: 100px; 
+    }
+    .swiper-container-vertical>.swiper-pagination-bullets {
+      right:auto;
+      left:12px;
+      top:50px;
+    }
+    .box {
+      text-align: left;
+      position: absolute;
+      left: 80px;
+      top: 90px;
+      background-color: rgba(250,250,256,.85);
+      padding: 30px 20px 12px 30px;
+      overflow: scroll;
+      /* border: 8px solid #777; */
+      max-height: 74%;
+    }
+    .box-right {
+      left:auto;
+      right:50px;
+    }
+	</style>
