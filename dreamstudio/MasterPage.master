@@ -167,7 +167,7 @@ if (!PUP.IsMode("e")) { %>
                 <!--
                 <a href="/#portfolio"><span style="white-space: nowrap">Portfolio</span></a> | 
                 -->
-                <a href="/#contact">Contact</a>
+                <a href="../contact">Contact</a>
 
                 <!--
                 /about-us
