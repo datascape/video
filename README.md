@@ -1,4 +1,4 @@
-# planet.live
+# planet.live datascape
 
 A repo dedicated to layering video with interactivity.  
 
