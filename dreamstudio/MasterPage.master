@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/dreamstudio/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../dreamstudio/favicon.ico" />
     <title>[TITLE]</title>
 
     <link href="/core/elements/styles/default.css" rel="stylesheet" type="text/css" />
@@ -105,7 +105,7 @@ if (!PUP.IsMode("e")) { %>
      <% if (PUP.ItemID == 94009) { %>
     jsonLink = '/files/dreamstudio/2011/Yaxchilan/feed.htm';
     <% } else { %>
-    jsonLink = '/dreamstudio/img/feed.htm';
+    jsonLink = '../dreamstudio/img/feed.htm';
     <% } %>
 
     function runSlideshow() {
@@ -155,7 +155,7 @@ if (!PUP.IsMode("e")) { %>
     <!--Header-->
     <div style="height:80px;border-bottom:1px solid #eee;background:#fff;z-index:1;width:100%;position:fixed;overflow:visible;z-index:1000">
         
-        <div style="float:left"><a href="/"><img src="/dreamstudio/img/logo/dreamstudio.jpg" style="height:23px; margin:28px 10px 4px 34px" /></a>
+        <div style="float:left"><a href="/"><img src="../dreamstudio/img/logo/dreamstudio.jpg" style="height:23px; margin:28px 10px 4px 34px" /></a>
         </div>
 
 
@@ -163,7 +163,7 @@ if (!PUP.IsMode("e")) { %>
         <div style="overflow:auto; border-left:0px solid #ccc; height:60px; margin:23px 40px 0 10px; padding-left:16px; font-size:13px">
 
             <div class="navLinks" style="float:right;padding-top:6px">
-                <a href="/dreamstudio/creative/#suite"><span style="white-space: nowrap">Creative Suite</span></a> | 
+                <a href="../dreamstudio/creative/#suite"><span style="white-space: nowrap">Creative Suite</span></a> | 
                 <!--
                 <a href="/#portfolio"><span style="white-space: nowrap">Portfolio</span></a> | 
                 -->
@@ -187,9 +187,9 @@ if (!PUP.IsMode("e")) { %>
         <!--
         <div id="pageLogo" style="margin:4px 0 0 10px; float:left; z-index:100">
             <% if (PUP.IContains(PUP.Host, "dreamstudio.com") || PUP.IContains(PUP.Host, "neighborhood") || PUP.Host == "http://localhost") { %>
-                 <a href="http://dreamstudio.com"><img style="margin-top:0px;max-width:160px" src="/dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
+                 <a href="http://dreamstudio.com"><img style="margin-top:0px;max-width:160px" src="../dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
             <% } else { %>
-                 <a href="http://dreamstudio.com"><img id="siteLogo" style="margin-top:0px;max-width:160px" src="/dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
+                 <a href="http://dreamstudio.com"><img id="siteLogo" style="margin-top:0px;max-width:160px" src="../dreamstudio/images/logo/dreamstudio.jpg" alt="DreamStudio" /></a>
             <% } %>
         </div>
         -->
@@ -259,7 +259,7 @@ if (!PUP.IsMode("e")) { %>
 
 <!--
 <div style="position:absolute;z-index:-1; width:100%">
- <img src="/dreamstudio/images/bkgd/moon-formation.jpg" width="100%" alt="" />
+ <img src="../dreamstudio/images/bkgd/moon-formation.jpg" width="100%" alt="" />
 </div>
 -->
 <% if (!PUP.IsMode("eam")) { %>
